@@ -19,8 +19,7 @@ public abstract class Conteudo extends TableDB{
     @GeneratedValue(strategy = GenerationType.TABLE)
     protected long id;
     protected String titulo;
-    protected LocalDate dtFinalizado;
-
+    public abstract BigDecimal getXp();
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

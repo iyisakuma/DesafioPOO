@@ -11,8 +11,11 @@ import java.util.Set;
 
 @Data
 @Entity
-public class Bootcamp extends Conteudo {
+public class Bootcamp extends TableDB {
 
+    @Id
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    private long id;
     private String descricao;
     private final LocalDate dtInicial = LocalDate.now();
     private final LocalDate dtFinal = LocalDate.now().plusDays(45);
@@ -23,8 +26,33 @@ public class Bootcamp extends Conteudo {
             joinColumns = @JoinColumn(name = "bootcamp_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "conteudo_id", referencedColumnName = "id")
     )
-    private Set<Conteudo> conteudos = new HashSet<>();
+    private Set<Conteudo> conteudoProgramatico = new HashSet<>();
 
+    @ManyToMany
+    @JoinTable(
+            name = "bootcamp_dev",
+            joinColumns = @JoinColumn(name = "bootcamp_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="dev_id", referencedColumnName = "id")
+
+    )
+    private Set<Dev> devInscritos = new HashSet<>();
+
+
+    public void add(Conteudo conteudo){
+        conteudoProgramatico.remove(conteudo);
+    }
+
+    public void remove(Conteudo conteudo){
+        conteudoProgramatico.remove(conteudo);
+    }
+
+    public void add(Dev devInscrito){
+        devInscritos.add(devInscrito);
+    }
+
+    public void remove(Dev devInscrito){
+        devInscritos.remove(devInscrito);
+    }
 
     @Override
     public boolean equals(Object o) {

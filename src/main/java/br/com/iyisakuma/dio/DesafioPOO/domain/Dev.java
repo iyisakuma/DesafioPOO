@@ -13,14 +13,9 @@ public class Dev extends TableDB{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
-    @ManyToMany
-    @JoinTable(
-            name = "dev_conteudo",
-            joinColumns = @JoinColumn(name = "dev_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "conteudo_id", referencedColumnName = "id")
-    )
-    private Set<Conteudo> conteudos = new LinkedHashSet<>();
-
+    @OneToMany
+    @JoinColumn(name = "dev_id", referencedColumnName = "id")
+    private Set<HistoricoMatricula> historicoMatriculas = new LinkedHashSet<>();
 
     @Override
     public boolean equals(Object o) {
@@ -33,5 +28,10 @@ public class Dev extends TableDB{
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public void add(HistoricoMatricula historico) {
+        historicoMatriculas.add(historico);
+
     }
 }
