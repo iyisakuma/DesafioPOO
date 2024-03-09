@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Data
 @Entity
@@ -15,9 +16,21 @@ public abstract class Conteudo extends TableDB{
     protected static final BigDecimal XP_PADRAO = BigDecimal.TEN;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String titulo;
-    private LocalDate dtFinalizado;
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    protected long id;
+    protected String titulo;
+    protected LocalDate dtFinalizado;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Conteudo conteudo = (Conteudo) o;
+        return id == conteudo.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

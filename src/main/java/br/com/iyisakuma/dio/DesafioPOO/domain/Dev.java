@@ -15,9 +15,9 @@ public class Dev extends TableDB{
     private String nome;
     @ManyToMany
     @JoinTable(
-            name = "dev_bootcamp",
+            name = "dev_conteudo",
             joinColumns = @JoinColumn(name = "dev_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "bootcamp_id", referencedColumnName = "id")
+            inverseJoinColumns = @JoinColumn(name = "conteudo_id", referencedColumnName = "id")
     )
     private Set<Conteudo> conteudos = new LinkedHashSet<>();
 

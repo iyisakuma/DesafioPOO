@@ -12,9 +12,7 @@ import java.util.Set;
 @Data
 @Entity
 public class Bootcamp extends Conteudo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+
     private String descricao;
     private final LocalDate dtInicial = LocalDate.now();
     private final LocalDate dtFinal = LocalDate.now().plusDays(45);
