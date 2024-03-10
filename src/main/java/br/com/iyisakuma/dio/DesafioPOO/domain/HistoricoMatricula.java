@@ -2,7 +2,6 @@ package br.com.iyisakuma.dio.DesafioPOO.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 
