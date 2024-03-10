@@ -5,12 +5,11 @@ import br.com.iyisakuma.dio.DesafioPOO.domain.Curso;
 import br.com.iyisakuma.dio.DesafioPOO.dto.CursoDTO;
 import br.com.iyisakuma.dio.DesafioPOO.repository.ConteudoRepository;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
+import java.util.List;
 
 @RestController()
 @RequestMapping("/curso")
@@ -33,5 +32,10 @@ public class CursoController {
     public ResponseEntity<Curso> getById(@PathVariable long id){
         Curso curso = (Curso) repository.findById(id).get();
         return ResponseEntity.ok(curso);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Conteudo>> findAll(){
+        return ResponseEntity.ok(repository.findAll());
     }
 }

@@ -14,7 +14,7 @@ import java.util.Set;
 public class Bootcamp extends TableDB {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy =  GenerationType.AUTO)
     private long id;
     private String descricao;
     private final LocalDate dtInicial = LocalDate.now();
