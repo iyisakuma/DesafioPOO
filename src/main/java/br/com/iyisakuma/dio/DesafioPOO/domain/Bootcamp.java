@@ -39,7 +39,7 @@ public class Bootcamp extends TableDB {
 
 
     public void add(Conteudo conteudo){
-        conteudoProgramatico.remove(conteudo);
+        conteudoProgramatico.add(conteudo);
     }
 
     public void remove(Conteudo conteudo){
