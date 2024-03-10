@@ -1,10 +1,7 @@
 package br.com.iyisakuma.dio.DesafioPOO.controller;
 
-import br.com.iyisakuma.dio.DesafioPOO.domain.Bootcamp;
 import br.com.iyisakuma.dio.DesafioPOO.domain.Dev;
-import br.com.iyisakuma.dio.DesafioPOO.dto.BootcampDTO;
 import br.com.iyisakuma.dio.DesafioPOO.dto.DevDto;
-import br.com.iyisakuma.dio.DesafioPOO.repository.BootcampRepository;
 import br.com.iyisakuma.dio.DesafioPOO.repository.DevRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
